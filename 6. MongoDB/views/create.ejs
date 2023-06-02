@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head.ejs') %>  
+  
+  <body>
+    <div class="container">
+      <nav>
+        <div class="title">Create Note</div>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/note/create">Create</a></li>
+        </ul>
+      </nav>
+      <form action="/" method="post">
+        <textarea placeholder="Text" name="body"></textarea>
+        <button>Create</button>
+      </form>
+    </div>
+  </body>
+</html>

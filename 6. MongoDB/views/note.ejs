@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head.ejs') %>  
+
+  <body>
+    <div class="container">
+      <nav>
+        <div class="title">Note</div>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/note/create">Create</a></li>
+          <li><a class="delete" data-note="<%= note._id %>">Delete</a></li>
+        </ul>
+      </nav>
+      <div class="note">
+        <%= note.body %>
+      </div>
+    </div>
+
+    <script>
+      const deleteBtn = document.querySelector('a.delete')
+
+      deleteBtn.addEventListener('click', ()=>{
+        fetch(`/note/${deleteBtn.dataset.note}`, { method: 'DELETE' })
+          .then(res => res.json())
+          .then(data => window.location.href = data.redirect)
+          .catch(err => console.log(err))
+      })
+    </script>
+  </body>
+</html>

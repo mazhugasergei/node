@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head.ejs') %>  
+
+  <body>
+    <div class="container">
+      <nav>
+        <div class="title">Home</div>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/note/create">Create</a></li>
+        </ul>
+      </nav>
+      <div class="notes">
+        <% if(notes.length){ %>
+          <% notes.forEach((note) => { %>
+            <a href=<%= "note/" + note._id %> class="note"><%= note.body %></a>
+          <% }) %>
+        <% } else { %>
+          <p>No notes</p>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
